@@ -4,6 +4,7 @@ import './App.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { LinearProgress } from '@material-ui/core';
+import {FiSearch } from "react-icons/fi";
 
 function App() {
   const [text, setText] = useState('')
@@ -50,7 +51,7 @@ function App() {
 
           <Button id='searchButton' variant="contained" color="primary"
             onClick={getMemes}>
-            Search
+            <FiSearch /> 
           </Button>
         </div>
 
@@ -68,8 +69,9 @@ function App() {
 
 function Meme({title, images}){
   return <div className='meme'>
-    <img src={images.fixed_height.url} alt='this is a meme'/>
-
+    <img onClick={()=> window.open(images.fixed_height.url, "_blank")}
+      src={images.fixed_height.url} alt='this is a meme'
+    />
     <div className='meme-title'>{title}</div>
   </div>
 
